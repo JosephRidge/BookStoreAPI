@@ -11,6 +11,11 @@
     * on terminal window - open via vscode run `pipenv --venv` it will print out a path, copy it and paste it at the search section open on your- run `python manage.py migrate` : applies all table migrations
 
 - Install djangorestframework ( will help build and design the rest api)  : `pip install djangorestframework`
+- Add the application created in  the Installed apps under the settings.py file
+-run `python manage.py makemigrations bookstore` -> make the db migrations
+- apply the migrations using : `python manage.py migrate`
+- create admin super user `python manage.py createsuperuser`
+
 
 ## Simple API CheckList : 
   - [x] Models ( help organmize and create our data model)
@@ -24,6 +29,17 @@
 
 
 # Part Create the Book Models : 
+- create models.py under the projects folder 
+- inside the models.py
+- run `python manage.py makemigrations bookstore`
+- inside the project directory add `admin.py` file and register the added model
+- Add the following file to be able to formart its id django admin 
+```
+    def __str__(self):
+        return self.name +""
+```
+
+# USing the djangorestframework to attain our data
 
 
 # NOTE: 
