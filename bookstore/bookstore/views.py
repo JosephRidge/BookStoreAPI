@@ -21,10 +21,24 @@ def books_list(request,format=None):
 
 # UPDATE..............DELETE 
 # Get data as per ID
-@api_view(['PUT', 'DELETE']) 
-def update_books(request,format=None):
+@api_view(['GET', 'PUT', 'DELETE']) 
+def update_books(request,id,format=None):
     try: 
         books = Book.objects.get(pk=id)
     except Book.DoesNotExist():
         return Response(status=status.HTTP_404_NOT_FOUND)    
-  
+    
+    if request.method == 'GET':
+        serializer = BooksSerializer(books)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+            serializer = BooksSerializer(books,data=request.data)    
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':  
+        drink.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

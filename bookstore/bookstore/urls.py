@@ -20,4 +20,5 @@ from bookstore import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/books/', views.books_list),
+    path('api/books/<int:id>', views.update_books),
 ]
