@@ -39,8 +39,31 @@
         return self.name +""
 ```
 
-# USing the djangorestframework to attain our data
+# Using the djangorestframework to attain our data
 - Create  serializers.py ( aid in converting python object to json and back)
+- define the BooksSerilizer class
+```
+class BooksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ['name', 'description','bookimage', 'category','favorite', 'pages','authors']
+```
+- add the rest_framework to Installed Apps 
+```
+INSTALLED_APPS = [
+    'bookstore',
+    'rest_framework',
+    ....
+]
+```
+# Create your View.py
+- Will host the functions/ methods that will run when certain endpoints are called from the urls.py 
+- create views.py in the projects directory
+- add the respective urls in the urls.py file
+
+
+
+
 
 # NOTE: 
  - The REST Architecture is used here. 

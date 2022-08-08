@@ -3,7 +3,7 @@ from django.db import models
 class Book(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=800)
-    bookImage = models.CharField(max_length=500)
+    image = models.CharField(max_length=1000)
     category = models.CharField(max_length=200)
     favorite = models.BooleanField()
     pages = models.IntegerField()
