@@ -40,7 +40,7 @@
 ```
 
 # USing the djangorestframework to attain our data
-
+- Create  serializers.py ( aid in converting python object to json and back)
 
 # NOTE: 
  - The REST Architecture is used here. 
